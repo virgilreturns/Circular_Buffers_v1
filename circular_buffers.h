@@ -17,16 +17,10 @@ typedef struct {
     CB_DATATYPE *const arr; // mutable data, but address is const
     int head;
     int tail;
-    const size_t capacity;
+    const int capacity;
 } CB_TypeDef;
 
-typedef enum {
-    CB_FULL = 0,
-    CB_EMPTY = 1,
-    CB_OK = 2
-} CB_STATUS;
-
-inline CB_TypeDef CB_Create(size_t capacity, CB_DATATYPE* mem_location);
+inline CB_TypeDef CB_Create(int capacity, CB_DATATYPE* mem_location);
 
 inline bool CB_IsFull(CB_TypeDef* cb);
 inline void CB_Push(CB_TypeDef* cb, CB_DATATYPE* data_in);

@@ -17,11 +17,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-inline CB_TypeDef CB_Create(size_t capacity, CB_DATATYPE* mem_location){
-    CB_TypeDef cb = {.arr = mem_location};
+inline CB_TypeDef CB_Create(int capacity, CB_DATATYPE* mem_location){
+    CB_TypeDef cb = {.arr = mem_location, .capacity = capacity};
     cb.head = 0; 
     cb.tail = 0; 
-    cb.capacity = capacity;
     return cb;
 }
 
@@ -37,7 +36,7 @@ inline void CB_Push(CB_TypeDef* cb, CB_DATATYPE* data_in){
         next = 0;
     }
 
-    cb->arr[cb->head] = data_in;
+    cb->arr[cb->head] = *data_in;
     cb->head = next;
 }
 
